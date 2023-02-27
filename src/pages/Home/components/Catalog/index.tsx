@@ -6,10 +6,14 @@ import {
   Description,
   CatalogContainer,
   CategoryContainer,
+  BuyButton,
+  CounterButton,
+  Counter,
 } from './styles'
-import { ShoppingCartSimple } from 'phosphor-react'
+import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
 
 import { coffeesData } from '../../../../coffesData'
+import { priceFormatter } from '../../../../utils/formatter'
 
 export function Catalog() {
   return (
@@ -32,13 +36,22 @@ export function Catalog() {
             <Footer>
               <Price>
                 R$
-                <span>{coffe.price}</span>
+                <span>{priceFormatter.format(coffe.price)}</span>
               </Price>
 
-              <input min={1} max={30} type="number" />
-              <button>
+              <Counter>
+                <CounterButton>
+                  <Minus weight="bold" />
+                </CounterButton>
+                <span>1</span>
+                <CounterButton>
+                  <Plus weight="bold" />
+                </CounterButton>
+              </Counter>
+
+              <BuyButton>
                 <ShoppingCartSimple size={24} weight="fill" />
-              </button>
+              </BuyButton>
             </Footer>
           </CoffeeCard>
         ))}

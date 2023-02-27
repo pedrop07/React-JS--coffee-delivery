@@ -21,6 +21,12 @@ export const IntroContainer = styled.section`
   }
 `
 
+export const Description = styled.span`
+  display: block;
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
+`
+
 export const BenefitsContainer = styled.div`
   display: flex;
   flex-direction: column;

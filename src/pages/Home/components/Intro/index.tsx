@@ -1,4 +1,9 @@
-import { Benefit, BenefitsContainer, IntroContainer } from './styles'
+import {
+  Benefit,
+  BenefitsContainer,
+  Description,
+  IntroContainer,
+} from './styles'
 import { ShoppingCart, Package, Timer, Coffee } from 'phosphor-react'
 
 export function Intro() {
@@ -6,10 +11,10 @@ export function Intro() {
     <IntroContainer>
       <div>
         <h1>Encontre o café perfeito para qualquer hora do dia</h1>
-        <span>
+        <Description>
           Com o Coffee Delivery você recebe seu café onde estiver, a qualquer
           hora
-        </span>
+        </Description>
 
         <BenefitsContainer>
           <article>

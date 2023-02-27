@@ -3,14 +3,9 @@ import styled from 'styled-components'
 export const CatalogContainer = styled.section`
   padding: 2rem 0 5rem;
 
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
-  @media (max-width: 991px) {
-    justify-content: space-evenly;
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 3rem 0.5rem;
 `
 
 export const CoffeeCard = styled.article`
@@ -18,7 +13,6 @@ export const CoffeeCard = styled.article`
   min-height: 19rem;
   border-radius: 6px 36px;
   padding: 1.25rem 1.5rem;
-  margin-top: 3rem;
 
   display: flex;
   flex-direction: column;
@@ -72,43 +66,62 @@ export const Price = styled.div`
   }
 `
 
+export const Counter = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+
+  padding: 8px;
+
+  background: ${(props) => props.theme['gray-400']};
+  border-radius: 6px;
+`
+
+export const CounterButton = styled.button`
+  cursor: pointer;
+  outline: none;
+  border: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: transparent;
+  color: ${(props) => props.theme['purple-500']};
+  border-radius: 6px;
+
+  transition: background-color 0.2s;
+
+  &:hover {
+    color: ${(props) => props.theme['purple-700']};
+  }
+`
+
+export const BuyButton = styled.button`
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 0.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: ${(props) => props.theme['purple-700']};
+  color: #fff;
+  border-radius: 6px;
+
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: ${(props) => props.theme['purple-500']};
+  }
+`
+
 export const Footer = styled.div`
   width: 100%;
 
   display: flex;
   justify-content: space-between;
-
-  input {
-    outline: none;
-    border: none;
-    width: 100%;
-    max-width: 4.5rem;
-    flex: 1;
-
-    padding: 8px;
-
-    background: ${(props) => props.theme['gray-400']};
-    border-radius: 6px;
-  }
-
-  button {
-    cursor: pointer;
-    outline: none;
-    border: none;
-    padding: 0.5rem;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background: ${(props) => props.theme['purple-700']};
-    color: #fff;
-    border-radius: 6px;
-
-    transition: background-color 0.2s;
-
-    &:hover {
-      background-color: ${(props) => props.theme['purple-500']};
-    }
-  }
 `

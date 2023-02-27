@@ -12,7 +12,10 @@ export const CheckoutContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    /* width: 45vw; */
+  }
+
+  @media (max-width: 1100px) {
+    justify-content: center;
   }
 `
 

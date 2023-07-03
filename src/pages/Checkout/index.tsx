@@ -1,46 +1,50 @@
+import { ArrowCircleLeft } from 'phosphor-react'
+import { useAppSelector } from '../../store/hooks/useAppSelector'
+import { Address } from './components/Address'
+import { Payment } from './components/Payment'
+import { SelectedItems } from './components/SelectedItems'
 import {
   CheckoutContainer,
-  AddressContainer,
-  PaymentMethodContainer,
-  SelectedItemsContainer,
-  BaseAddressInput,
-  InputWrapper,
+  EmptyCartContainer,
+  GoHomeButton,
+  Title,
 } from './styles'
 
 export function Checkout() {
+  const cart = useAppSelector((state) => state.cart)
+
+  if (cart.length === 0) {
+    return (
+      <EmptyCartContainer>
+        <h2>Seu Carrinho está vazio !</h2>
+        <GoHomeButton to="/">
+          <ArrowCircleLeft size={28} />
+          Voltar para a página inicial
+        </GoHomeButton>
+      </EmptyCartContainer>
+    )
+  }
+
   return (
-    <CheckoutContainer>
-      <div>
-        Complete seu pedido
+    <form
+      onSubmit={(e) => {
+        e.preventDefault()
+        console.log('submit')
+      }}
+    >
+      <CheckoutContainer>
         <div>
-          <AddressContainer>
-            <div>
-              <span>Endereço de Entrega</span>
-              <p>Informe o endereço onde deseja receber seu pedido</p>
-            </div>
-            <InputWrapper gridColumn={'12.5rem'}>
-              <BaseAddressInput type="text" placeholder="CEP" />
-            </InputWrapper>
-            <InputWrapper gridColumn={'1fr'}>
-              <BaseAddressInput type="text" placeholder="Rua" />
-            </InputWrapper>
-            <InputWrapper gridColumn={'12.5rem 1fr'}>
-              <BaseAddressInput type="text" placeholder="Número" />
-              <BaseAddressInput type="text" placeholder="Complemento" />
-            </InputWrapper>
-            <InputWrapper gridColumn={'12.5rem 1fr 3.75rem'}>
-              <BaseAddressInput type="text" placeholder="Bairro" />
-              <BaseAddressInput type="text" placeholder="Cidade" />
-              <BaseAddressInput type="text" placeholder="UF" />
-            </InputWrapper>
-          </AddressContainer>
-          <PaymentMethodContainer></PaymentMethodContainer>
+          <Title>Complete seu pedido</Title>
+          <div>
+            <Address />
+            <Payment />
+          </div>
         </div>
-      </div>
-      <div>
-        Cafés selecionados
-        <SelectedItemsContainer></SelectedItemsContainer>
-      </div>
-    </CheckoutContainer>
+        <div>
+          <Title>Cafés selecionados</Title>
+          <SelectedItems />
+        </div>
+      </CheckoutContainer>
+    </form>
   )
 }

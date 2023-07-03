@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { CoffeeData } from '../../../../interfaces/CoffeeData'
 import { priceFormatter } from '../../../../utils/formatter'
 import {
-  BuyButton,
+  AddCardButton,
   Category,
   CategoryContainer,
   CoffeeCard,
@@ -13,13 +13,36 @@ import {
   Footer,
   Price,
 } from './styles'
+import { useDispatch } from 'react-redux'
+import { useAppSelector } from '../../../../store/hooks/useAppSelector'
+import { increment } from '../../../../store/reducers/cart'
 
 type CoffeeCardProps = {
   coffeeData: CoffeeData
 }
 
 export function CoffeeCardComponent({ coffeeData }: CoffeeCardProps) {
+  const cart = useAppSelector((state) => state.cart)
+  const dispatch = useDispatch()
   const [amount, setAmount] = useState(1)
+
+  const handleAddToCart = ({ title, price, image }: CoffeeData) => {
+    const index = cart.findIndex(({ name }) => name === title)
+
+    const total = Number((amount * price).toFixed(2))
+
+    const payload = {
+      name: title,
+      amount,
+      maxAmount: coffeeData.amount,
+      price,
+      total,
+      index,
+      image,
+    }
+
+    dispatch(increment(payload))
+  }
 
   function incrementAmount() {
     if (amount !== coffeeData.amount) setAmount((prevState) => prevState + 1)
@@ -65,9 +88,9 @@ export function CoffeeCardComponent({ coffeeData }: CoffeeCardProps) {
           </CounterButton>
         </Counter>
 
-        <BuyButton>
+        <AddCardButton onClick={() => handleAddToCart(coffeeData)}>
           <ShoppingCartSimple size={24} weight="fill" />
-        </BuyButton>
+        </AddCardButton>
       </Footer>
     </CoffeeCard>
   )

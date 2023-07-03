@@ -95,7 +95,7 @@ export const CounterButton = styled.button`
   }
 `
 
-export const BuyButton = styled.button`
+export const AddCardButton = styled.button`
   cursor: pointer;
   outline: none;
   border: none;

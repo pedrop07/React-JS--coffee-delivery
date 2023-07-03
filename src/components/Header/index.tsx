@@ -7,8 +7,11 @@ import {
 } from './styles'
 import { ShoppingCart, MapPin } from 'phosphor-react'
 import { NavLink } from 'react-router-dom'
+import { useAppSelector } from '../../store/hooks/useAppSelector'
 
 export function Header() {
+  const cart = useAppSelector((state) => state.cart)
+
   return (
     <HeaderContainer>
       <NavLink to="/" title="Home">
@@ -20,8 +23,8 @@ export function Header() {
           <MapPin size={24} weight="fill" />
           Fortaleza, CE
         </Address>
-        <Cart>
-          <CartQuantity>1</CartQuantity>
+        <Cart to={'/checkout'}>
+          <CartQuantity>{cart.length}</CartQuantity>
           <ShoppingCart size={24} weight="fill" />
         </Cart>
       </DataContainer>

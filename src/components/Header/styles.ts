@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
@@ -16,19 +17,17 @@ export const DataContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
-
-  article {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.3rem;
-
-    padding: 0.5rem;
-    border-radius: 6px;
-  }
 `
 
 export const Address = styled.article`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+
+  padding: 0.5rem;
+  border-radius: 6px;
+
   background: ${(props) => props.theme['purple-300']};
   color: ${(props) => props.theme['purple-700']};
 
@@ -37,7 +36,15 @@ export const Address = styled.article`
   }
 `
 
-export const Cart = styled.article`
+export const Cart = styled(NavLink)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+
+  padding: 0.5rem;
+  border-radius: 6px;
+
   background: ${(props) => props.theme['yellow-300']};
   color: ${(props) => props.theme['yellow-700']};
 

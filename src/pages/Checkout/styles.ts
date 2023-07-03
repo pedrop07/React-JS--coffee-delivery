@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const CheckoutContainer = styled.div`
@@ -19,63 +20,43 @@ export const CheckoutContainer = styled.div`
   }
 `
 
-export const AddressContainer = styled.div`
-  padding: 2.5rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+export const Title = styled.h2`
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.25rem;
+  color: ${({ theme }) => theme['gray-800']};
+  margin-bottom: 0.85rem;
+`
 
+export const EmptyCartContainer = styled.div`
+  height: 500px;
   width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
 
   background: ${(props) => props.theme['gray-100']};
   border-radius: 6px;
-
-  span {
-    color: ${(props) => props.theme['gray-800']};
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-
-  p {
-    color: ${(props) => props.theme['gray-700']};
-    font-size: 14px;
-  }
 `
 
-export const BaseAddressInput = styled.input`
-  padding: 0.875rem;
-
-  outline: none;
-  border: 1px solid #e6e5e5;
-  border-radius: 4px;
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-
-  background: ${(props) => props.theme['gray-300']};
-`
-
-interface InputWrapperProps {
-  gridColumn: string
-}
-
-export const InputWrapper = styled.div<InputWrapperProps>`
-  display: grid;
-  grid-template-columns: ${({ gridColumn }) => gridColumn};
-  gap: 1rem;
-`
-
-export const PaymentMethodContainer = styled.div``
-
-export const SelectedItemsContainer = styled.div`
-  padding: 2.5rem;
-  width: 448px;
+export const GoHomeButton = styled(NavLink)`
+  cursor: pointer;
+  text-decoration: none;
 
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 
-  background: ${(props) => props.theme['gray-100']};
-  border-radius: 6px 44px;
+  padding: 8px;
+  border-radius: 6px;
+
+  background-color: ${({ theme }) => theme['purple-700']};
+  color: ${({ theme }) => theme.white};
+
+  &:hover {
+    background-color: ${({ theme }) => theme['purple-500']};
+  }
 `

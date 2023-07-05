@@ -39,7 +39,7 @@ export function Intro() {
 
         <div className="grid gap-x-6 gap-y-5 grid-cols-2 mt-16">
           {benefits.map(({ title, icon, color }) => (
-            <div key={'title'} className="flex items-center gap-3">
+            <div key={title} className="flex items-center gap-3">
               <div
                 className={clsx(
                   'flex items-center justify-center rounded-full p-2',

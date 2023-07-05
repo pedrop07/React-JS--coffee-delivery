@@ -15,10 +15,10 @@ export function SelectedItems() {
     <div className="bg-gray-100 rounded-tl-[6px] rounded-tr-[36px] rounded-bl-[36px] rounded-br-[6px] p-10">
       {cart.map((coffee, index) => {
         return (
-          <>
-            <CoffeeCard key={coffee.name} coffee={coffee} index={index} />
+          <div key={coffee.name}>
+            <CoffeeCard coffee={coffee} index={index} />
             <hr className="bg-gray-400 h-[2px] border-none my-6" />
-          </>
+          </div>
         )
       })}
       <div className="flex items-center justify-between gap-3 mb-3">

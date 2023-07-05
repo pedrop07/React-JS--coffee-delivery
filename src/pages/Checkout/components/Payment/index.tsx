@@ -1,13 +1,20 @@
-import { useState } from 'react'
+import React from 'react'
 import { Bank, CreditCard, CurrencyDollar, Money } from 'phosphor-react'
+import { useDispatch } from 'react-redux'
+import { changePaymentMethod } from '../../../../store/reducers/paymentMethod'
+import { PaymentMethod } from '../../../../interfaces/PaymentMethod'
 
-type PaymentMethod = 'credit-card' | 'debit-card' | 'cash' | null
+interface Props {
+  paymentMethod: PaymentMethod
+  setPaymentMethod: React.Dispatch<React.SetStateAction<PaymentMethod>>
+}
 
-export function Payment() {
-  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>(null)
+export function Payment({ paymentMethod, setPaymentMethod }: Props) {
+  const dispatch = useDispatch()
 
   const handlePaymentMethod = (paymentMethod: PaymentMethod) => {
     setPaymentMethod(paymentMethod)
+    dispatch(changePaymentMethod({ paymentMethod }))
   }
 
   return (
@@ -24,6 +31,7 @@ export function Payment() {
       </div>
       <div className="grid md:grid-cols-3 gap-3">
         <button
+          type="button"
           onClick={() => handlePaymentMethod('credit-card')}
           data-method={paymentMethod}
           className="cursor-pointer flex gap-3 items-center p-4 border border-transparent bg-gray-400 hover:bg-gray-500 rounded-md text-gray-700 text-sm uppercase data-[method=credit-card]:border-purple-500 data-[method=credit-card]:bg-purple-300"
@@ -32,6 +40,7 @@ export function Payment() {
           Cartão de crédito
         </button>
         <button
+          type="button"
           onClick={() => handlePaymentMethod('debit-card')}
           data-method={paymentMethod}
           className="cursor-pointer flex gap-3 items-center p-4 border border-transparent bg-gray-400 hover:bg-gray-500 rounded-md text-gray-700 text-sm uppercase data-[method=debit-card]:border-purple-500 data-[method=debit-card]:bg-purple-300"
@@ -40,6 +49,7 @@ export function Payment() {
           Cartão de débito
         </button>
         <button
+          type="button"
           onClick={() => handlePaymentMethod('cash')}
           data-method={paymentMethod}
           className="cursor-pointer flex gap-3 items-center p-4 border border-transparent bg-gray-400 hover:bg-gray-500 rounded-md text-gray-700 text-sm uppercase data-[method=cash]:border-purple-500 data-[method=cash]:bg-purple-300"

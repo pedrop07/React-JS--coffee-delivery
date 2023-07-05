@@ -27,9 +27,12 @@ export const cartSlice = createSlice({
     deleteItem: (state, action: PayloadAction<number>) => {
       state.splice(action.payload, 1)
     },
+    clearCart: (state) => {
+      state.splice(0, state.length)
+    },
   },
 })
 
-export const { increment, deleteItem } = cartSlice.actions
+export const { increment, deleteItem, clearCart } = cartSlice.actions
 
 export const cartReducer = cartSlice.reducer

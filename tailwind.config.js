@@ -31,5 +31,6 @@ export default {
       cursive: ['"Baloo 2"', 'cursive'],
     },
   },
+  darkMode: 'class',
   plugins: [],
 }

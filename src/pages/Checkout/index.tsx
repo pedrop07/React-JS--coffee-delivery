@@ -57,11 +57,11 @@ export function Checkout() {
 
   if (success) {
     return (
-      <div>
+      <div className="mt-10">
         <h1 className="font-cursive text-yellow-700 text-4xl mb-1 font-extrabold">
           Uhu! Pedido confirmado
         </h1>
-        <h4 className="text-gray-800 text-xl">
+        <h4 className="text-gray-800 dark:text-slate-200 text-xl">
           Agora é só aguardar que logo o café chegará até você
         </h4>
 
@@ -70,7 +70,7 @@ export function Checkout() {
             <div className="flex justify-center items-center p-2 rounded-full bg-purple-500">
               <MapPin size={20} weight="fill" color="#fff" />
             </div>
-            <p className="text-gray-700">
+            <p className="text-gray-700 dark:text-slate-100">
               Entrega em Rua <span className="font-bold">{address.street}</span>
               , {address.number}
               <br />
@@ -81,7 +81,7 @@ export function Checkout() {
             <div className="flex justify-center items-center p-2 rounded-full bg-yellow-500">
               <Timer size={20} weight="fill" color="#fff" />
             </div>
-            <p className="text-gray-700">
+            <p className="text-gray-700 dark:text-slate-100">
               Previsão de entrega
               <br />
               <span className="font-bold">20 min - 30 min</span>
@@ -91,7 +91,7 @@ export function Checkout() {
             <div className="flex justify-center items-center p-2 rounded-full bg-yellow-700">
               <CurrencyDollar size={20} color="#fff" />
             </div>
-            <p className="text-gray-700">
+            <p className="text-gray-700 dark:text-slate-100">
               Pagamento na entrega
               <br />
               <span className="font-bold">
@@ -106,8 +106,8 @@ export function Checkout() {
 
   if (cart.length === 0) {
     return (
-      <div className="p-4 rounded-md bg-gray-100 flex flex-col items-center justify-center gap-4 h-[500px]">
-        <h2 className="font-cursive font-extrabold text-3xl text-gray-800">
+      <div className="p-4 mt-20 rounded-md bg-gray-100 dark:bg-slate-800 flex flex-col items-center justify-center gap-4 h-[500px]">
+        <h2 className="font-cursive font-extrabold text-3xl text-gray-800 dark:text-slate-100">
           Seu Carrinho está vazio !
         </h2>
         <NavLink
@@ -127,7 +127,7 @@ export function Checkout() {
         <form onSubmit={methods.handleSubmit(onSubmit)}>
           <div className="flex flex-wrap gap-8">
             <div>
-              <h3 className="font-cursive text-gray-800 font-bold text-lg mb-4">
+              <h3 className="font-cursive text-gray-800 dark:text-slate-100 font-bold text-lg mb-4">
                 Complete seu pedido
               </h3>
               <div className="flex flex-col gap-4">
@@ -140,7 +140,7 @@ export function Checkout() {
             </div>
 
             <div>
-              <h3 className="font-cursive text-gray-800 font-bold text-lg mb-4">
+              <h3 className="font-cursive text-gray-800 dark:text-slate-100 font-bold text-lg mb-4">
                 Cafés selecionados
               </h3>
               <SelectedItems />

@@ -28,11 +28,11 @@ export function Intro() {
   return (
     <section className="flex lg:flex-row flex-col gap-14 mt-24">
       <div className="lg:order-first order-last">
-        <h1 className="font-cursive font-extrabold text-5xl mb-4">
+        <h1 className="font-cursive font-extrabold text-5xl dark:text-slate-50 mb-4">
           Encontre o café perfeito para qualquer hora do dia
         </h1>
 
-        <p className="text-xl text-gray-900">
+        <p className="text-xl text-gray-900 dark:text-slate-400">
           Com o Coffee Delivery você recebe seu café onde estiver, a qualquer
           hora
         </p>
@@ -48,7 +48,7 @@ export function Intro() {
               >
                 {icon}
               </div>
-              <span className="text-gray-700">{title}</span>
+              <span className="text-gray-700 dark:text-slate-200">{title}</span>
             </div>
           ))}
         </div>

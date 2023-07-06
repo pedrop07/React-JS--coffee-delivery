@@ -16,7 +16,7 @@ export function Input({
     <div className="flex flex-col gap-1">
       <IMaskInput
         className={clsx(
-          'bg-gray-300 p-3 w-full rounded-md border border-gray-400 placeholder:text-gray-600 focus:outline-none focus:border-yellow-700',
+          'bg-gray-300 dark:bg-slate-700 dark:text-slate-100 p-3 w-full rounded-md border border-gray-400 dark:border-slate-800 placeholder:text-gray-600 placeholder:dark:text-slate-200 focus:outline-none focus:border-yellow-700 focus:dark:border-yellow-700',
           className,
           error && 'border-red-600',
         )}

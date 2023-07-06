@@ -4,7 +4,7 @@ import { CoffeeCardComponent } from '../CoffeeCard'
 export function Catalog() {
   return (
     <>
-      <h2 className="font-cursive font-extrabold text-3xl text-gray-800 mt-12">
+      <h2 className="font-cursive font-extrabold text-3xl text-gray-800 dark:text-slate-100 mt-12">
         Nossos cafés
       </h2>
 

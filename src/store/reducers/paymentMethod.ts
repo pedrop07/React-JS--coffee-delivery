@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import type { PaymentMethod } from '../../pages/Checkout/components/Payment'
+import { PaymentMethod } from '../../interfaces/PaymentMethod'
 
 interface InitialState {
   paymentMethod: PaymentMethod

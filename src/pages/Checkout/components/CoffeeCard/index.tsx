@@ -55,10 +55,11 @@ export function CoffeeCard({ coffee, index }: Props) {
       <div className="flex flex-wrap items-center gap-5">
         <img src={coffee.image} alt={coffee.name} title={coffee.name} />
         <div className="flex flex-col gap-2">
-          <h4 className="text-gray-800">{coffee.name}</h4>
+          <h4 className="text-gray-800 dark:text-slate-100">{coffee.name}</h4>
           <div className="flex items-center gap-2">
-            <div className="flex gap-2 justify-center p-2 bg-gray-400 rounded-md">
+            <div className="flex gap-2 justify-center p-2 bg-gray-400 dark:bg-slate-700 dark:text-slate-100 rounded-md">
               <button
+                type="button"
                 className="cursor-pointer text-purple-500 hover:text-purple-700"
                 onClick={() => decrementAmount(coffee, index)}
                 disabled={amount === 1}
@@ -67,6 +68,7 @@ export function CoffeeCard({ coffee, index }: Props) {
               </button>
               {amount}
               <button
+                type="button"
                 className="cursor-pointer text-purple-500 hover:text-purple-700"
                 onClick={() => incrementAmount(coffee, index)}
                 disabled={amount === coffee.maxAmount}
@@ -75,7 +77,8 @@ export function CoffeeCard({ coffee, index }: Props) {
               </button>
             </div>
             <button
-              className="cursor-pointer flex gap-1 items-center p-2 bg-gray-400 hover:bg-gray-500 rounded-md text-gray-700"
+              type="button"
+              className="cursor-pointer flex gap-1 items-center p-2 bg-gray-400 dark:bg-slate-700 dark:text-slate-100 hover:bg-gray-500 hover:dark:bg-slate-600 rounded-md text-gray-700"
               onClick={() => handleDeleteItem(index)}
             >
               <Trash size={20} color="#8047F8" />

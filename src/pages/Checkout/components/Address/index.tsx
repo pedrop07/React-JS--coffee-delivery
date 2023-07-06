@@ -7,13 +7,15 @@ export function Address() {
   const { errors } = formState
 
   return (
-    <div className="bg-gray-100 rounded-md p-6 lg:p-10">
+    <div className="bg-gray-100 dark:bg-slate-800 rounded-md p-6 lg:p-10">
       <div className="mb-8 flex items-center gap-2">
         <MapPinLine className="hidden sm:block" size={30} color="#DBAC2C" />
 
         <div>
-          <span className="text-gray-800">Endereço de Entrega</span>
-          <p className="text-gray-700 text-sm">
+          <span className="text-gray-800 dark:text-slate-100">
+            Endereço de Entrega
+          </span>
+          <p className="text-gray-700 dark:text-slate-200 text-sm">
             Informe o endereço onde deseja receber seu pedido
           </p>
         </div>

@@ -42,7 +42,7 @@ export function CoffeeCardComponent({ coffeeData }: CoffeeCardProps) {
   }
 
   return (
-    <div className="bg-gray-100 rounded-tl-[6px] rounded-tr-[36px] rounded-bl-[36px] rounded-br-[6px] p-5 mx-auto text-center flex flex-col justify-between max-w-[270px]">
+    <div className="bg-gray-100 dark:bg-slate-800 rounded-tl-[6px] rounded-tr-[36px] rounded-bl-[36px] rounded-br-[6px] p-5 mx-auto text-center flex flex-col justify-between max-w-[270px]">
       <img
         src={coffeeData.image}
         alt={coffeeData.title}
@@ -61,15 +61,15 @@ export function CoffeeCardComponent({ coffeeData }: CoffeeCardProps) {
         ))}
       </div>
 
-      <h3 className="font-cursive text-gray-800 text-xl font-bold mb-2 mt-3">
+      <h3 className="font-cursive text-gray-800 dark:text-slate-100 text-xl font-bold mb-2 mt-3">
         {coffeeData.title}
       </h3>
-      <p className="text-gray-600 text-center text-sm">
+      <p className="text-gray-600 dark:text-slate-300 text-center text-sm">
         {coffeeData.description}
       </p>
 
       <div className="flex gap-2 justify-between">
-        <div className="text-gray-700 self-end">
+        <div className="text-gray-700 dark:text-slate-100 self-end">
           <span className="text-sm mr-1">R$</span>
           <span className="font-cursive text-2xl font-extrabold">
             {priceFormatter.format(coffeeData.price)}
@@ -77,7 +77,7 @@ export function CoffeeCardComponent({ coffeeData }: CoffeeCardProps) {
         </div>
 
         <div className="flex gap-2 mt-6">
-          <div className="flex gap-2 justify-center p-2 bg-gray-400 rounded-md">
+          <div className="flex gap-2 justify-center p-2 bg-gray-400 dark:bg-slate-700 dark:text-slate-100 rounded-md">
             <button
               className="cursor-pointer text-purple-500 hover:text-purple-700"
               onClick={decrementAmount}

@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import { ShoppingCart, Package, Timer, Coffee } from 'phosphor-react'
+import branding from '../../../../assets/images/branding-coffee.svg'
 
 export function Intro() {
   const benefits = [
@@ -54,11 +55,7 @@ export function Intro() {
         </div>
       </div>
 
-      <img
-        className="mx-auto"
-        src="src/assets/images/branding-coffee.svg"
-        alt="Coffee Delivery"
-      />
+      <img className="mx-auto" src={branding} alt="Coffee Delivery" />
     </section>
   )
 }
